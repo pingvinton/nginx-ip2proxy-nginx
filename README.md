@@ -1,3 +1,13 @@
+# Why you need patch this
+```
+# nm /opt/ip2proxy/lib/libIP2Proxy.so.1.0.0  | grep shm
+0000000000002160 T IP2Proxy_delete_shm
+00000000002052a0 b shm_fd
+                 U shm_open@@GLIBC_2.2.5
+                 U shm_unlink@@GLIBC_2.2.5
+```
+Into lib libIP2Proxy.so.1.0.0 we don't have function with name IP2Proxy_DB_del_shm()
+
 # IP2Proxy HTTP Module for Nginx
 
 The module detects visitor IP addresses which are used as VPN anonymizer, open proxies, web proxies and Tor exits.
